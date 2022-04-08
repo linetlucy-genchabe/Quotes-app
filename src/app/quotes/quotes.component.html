@@ -1,14 +1,18 @@
 <div class="container">
     <div class="jumbotron">
         <h1 class="display-3">WELCOME TO QUOTES APP!</h1>
-        <p class="lead">Checkout all quotes</p>
+
 
     </div>
-    <h2>QUOTES</h2>
+
     <hr>
 
     <div class="row">
         <div class="col-md-6">
+            <app-quote-form (addQuote)="addNewQuote($event)"> </app-quote-form>
+        </div>
+        <div class="col-md-6">
+            <h2 align="center">QUOTES</h2>
             <div *ngFor='let quote of quotes;let i = index' class="quotation">
                 <div>
                     <h6 id={{i}} appStrikethrough>{{quote.name}} </h6>
@@ -23,38 +27,7 @@
             </div>
 
         </div>
-        <div class="col-md-6">
-            <app-quote-form (addQuote)="addNewQuote($event)"> </app-quote-form>
-        </div>
+
     </div>
     <!-- <p *ngIf='quotes.length > 5'>You have too many goals</p> -->
 </div>
-
-<style>
-    .btn {
-        background-color: black;
-        margin-top: 10px;
-    }
-    
-    .display-3 {
-        font-weight: bolder;
-        color: darkturquoise;
-    }
-    
-    .lead {
-        color: darkturquoise;
-    }
-    
-    .container {
-        background-image: url("src/assets/bkpic.jpg");
-    }
-    
-    .quotation {
-        border: 2px solid darkturquoise;
-        height: 250px;
-        border-radius: 20px;
-        box-shadow: 2px 2px 2px;
-        text-align: center;
-        margin-bottom: 15px;
-    }
-</style>
