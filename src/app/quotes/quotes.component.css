@@ -1,0 +1,29 @@
+.btn {
+    background-color: black;
+    margin-top: 10px;
+}
+
+.display-3 {
+    font-weight: bolder;
+    color: white;
+    text-align: center;
+    font-family: fantasy;
+    padding-top: 3%;
+}
+
+.container {
+    background-image: url("src/assets/bkpic.jpg");
+}
+
+.quotation {
+    border: 2px solid darkorchid;
+    height: 250px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+* {
+    color: white;
+}
