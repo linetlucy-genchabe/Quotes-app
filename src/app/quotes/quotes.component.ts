@@ -9,8 +9,13 @@ import { Quotes } from '../quotes';
 })
 export class QuotesComponent implements OnInit {
   quotes: Quotes[] = [
-    new Quotes(1, 'Watch finding Nemo', 'Find an online version and watch merlin find his son',new Date(2023,3,14)),
-    new Quotes(2,'Buy Cookies','I have to buy cookies for the parrot',new Date(2023,3,14)),
+    new Quotes(1,"The two most powerful warriors are patience and time","AUTHOR: Leo Tolstoy",new Date()),
+    new Quotes(2, 'Time is money', 'AUTHOR: Benjamin Franklin',new Date()),
+    new Quotes(3,'Better three hours too soon than a minute too late','AUTHOR: William Shakespeare',new Date()),
+    new Quotes(4, 'Time is money', 'AUTHOR: Benjamin Franklin',new Date()),
+    new Quotes(5, 'Time is money', 'AUTHOR: Benjamin Franklin',new Date()),
+    new Quotes(6, 'Time is money', 'AUTHOR: Benjamin Franklin',new Date()),
+    new Quotes(7, 'Time is money', 'AUTHOR: Benjamin Franklin',new Date()),
     
   ];
 
@@ -18,7 +23,7 @@ export class QuotesComponent implements OnInit {
   addNewQuote(quote:any){
     let quoteLength = this.quotes.length;
     quote.id = quoteLength+1;
-    quote.completeDate = new Date(quote.completeDate)
+    quote.startDate = new Date(quote.startDate)
     this.quotes.push(quote)
   }
   constructor() { }
