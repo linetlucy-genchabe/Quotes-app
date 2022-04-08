@@ -11,14 +11,13 @@
                 </div>
 
                 <div *ngIf='quote.showDescription'>
-                    <!-- <app-goal-detail [goal]='goal' (isComplete)='deleteGoal($event,i)'></app-goal-detail> -->
+                    <app-quotes-detail [quote]='quote' (isComplete)='deleteQuote($event,i)'></app-quotes-detail>
                 </div>
             </div>
         </div>
-        <!-- <div class="col-md-6">
-            <app-goal-form (addGoal)="addNewGoal($event)"> </app-goal-form>
-        </div> -->
+        <div class="col-md-6">
+            <app-quote-form (addQuote)="addNewQuote($event)"> </app-quote-form>
+        </div>
     </div>
     <p *ngIf='quotes.length > 5'>You have too many goals</p>
 </div>
-<app-quotes></app-quotes>
