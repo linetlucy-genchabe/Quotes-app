@@ -11,6 +11,10 @@ export class QuotesDetailComponent implements OnInit {
   quote!: Quotes;
   @Output() isComplete = new EventEmitter<boolean>();
 
+  quoteDelete(complete:boolean){
+    this.isComplete.emit(complete);
+  }
+
   constructor() { }
 
   ngOnInit(): void {
