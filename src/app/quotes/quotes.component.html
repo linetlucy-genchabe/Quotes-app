@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-md-6">
-            <div *ngFor='let quote of quotes;let i = index'>
+            <div *ngFor='let quote of quotes;let i = index' class="quotation">
                 <div>
                     <h6 id={{i}} appStrikethrough>{{quote.name}} </h6>
                     <button (click)='toggleDetails(i)' class="btn btn-primary">Details</button>
@@ -18,7 +18,10 @@
                 <div *ngIf='quote.showDescription'>
                     <app-quotes-detail [quote]='quote' (isComplete)='deleteQuote($event,i)'></app-quotes-detail>
                 </div>
+                <button class="btn btn-primary btn-sm" ng-click="incrementUp(member)">
+                    <span class="glyphicon glyphicon-arrow-up"></span> Upvote</button> | <button class="btn btn-danger btn-sm" ng-click="incrementDown(member)"><span class="glyphicon glyphicon-arrow-down"></span> Downvote</button>
             </div>
+
         </div>
         <div class="col-md-6">
             <app-quote-form (addQuote)="addNewQuote($event)"> </app-quote-form>
@@ -42,5 +45,18 @@
     
     .lead {
         color: darkturquoise;
+    }
+    
+    .container {
+        background-image: url("src/assets/bkpic.jpg");
+    }
+    
+    .quotation {
+        border: 2px solid darkturquoise;
+        height: 250px;
+        border-radius: 20px;
+        box-shadow: 2px 2px 2px;
+        text-align: center;
+        margin-bottom: 15px;
     }
 </style>
