@@ -12,14 +12,11 @@ export class QuotesComponent implements OnInit {
     new Quotes(1,"The two most powerful warriors are patience and time","AUTHOR: Leo Tolstoy",new Date()),
     new Quotes(2, 'Time is money', 'AUTHOR: Benjamin Franklin',new Date()),
     new Quotes(3,'Better three hours too soon than a minute too late','AUTHOR: William Shakespeare',new Date()),
-    new Quotes(4, 'Time is money', 'AUTHOR: Benjamin Franklin',new Date()),
-    new Quotes(5, 'Time is money', 'AUTHOR: Benjamin Franklin',new Date()),
-    new Quotes(6, 'Time is money', 'AUTHOR: Benjamin Franklin',new Date()),
-    new Quotes(7, 'Time is money', 'AUTHOR: Benjamin Franklin',new Date()),
+   
     
   ];
 
-
+  
   addNewQuote(quote:any){
     let quoteLength = this.quotes.length;
     quote.id = quoteLength+1;
@@ -42,4 +39,20 @@ export class QuotesComponent implements OnInit {
       }
     }
   }
+  function($scope: { members: { name: string; Votes: number; }[]; incrementUp: (member: any) => void; incrementDown: (member: any) => void; }){
+ 
+    var members =[
+      {name: "John Smith", Votes: 0},
+      {name: "Claire Temple", Votes: 0},
+    ];					
+   
+    $scope.members = members;
+   
+    $scope.incrementUp = function(member: { Votes: number; }){
+      member.Votes++;
+    }
+    $scope.incrementDown = function(member: { Votes: number; }){
+      member.Votes--;
+    }
+}
 }
