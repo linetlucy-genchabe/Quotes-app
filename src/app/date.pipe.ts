@@ -9,7 +9,6 @@ import { Quotes } from './quotes';
 export class DatePipe implements PipeTransform {
 
   transform(value: any){
-    // let today:Date = new Date(); //get current date and time
     
     let timeCount: string = "";
     let today: any = new Date();
