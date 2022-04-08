@@ -9,9 +9,9 @@ import { Quotes } from '../quotes';
 })
 export class QuotesComponent implements OnInit {
   quotes: Quotes[] = [
-    new Quotes(1,"The two most powerful warriors are patience and time","AUTHOR: Leo Tolstoy",new Date()),
-    new Quotes(2, 'Time is money', 'AUTHOR: Benjamin Franklin',new Date()),
-    new Quotes(3,'Better three hours too soon than a minute too late','AUTHOR: William Shakespeare',new Date()),
+    new Quotes(1,"The two most powerful warriors are patience and time","AUTHOR: Leo Tolstoy",new Date(2021,3,14)),
+    new Quotes(2, 'Time is money', 'AUTHOR: Benjamin Franklin',new Date(2020,3,14)),
+    new Quotes(3,'Better three hours too soon than a minute too late','AUTHOR: William Shakespeare',new Date(2022,3,14)),
    
     
   ];
@@ -39,20 +39,20 @@ export class QuotesComponent implements OnInit {
       }
     }
   }
-  function($scope: { members: { name: string; Votes: number; }[]; incrementUp: (member: any) => void; incrementDown: (member: any) => void; }){
+  function($scope: { quotes: { id: number; Votes: number; }[]; incrementUp: (quote: any) => void; incrementDown: (quote: any) => void; }){
  
-    var members =[
-      {name: "John Smith", Votes: 0},
-      {name: "Claire Temple", Votes: 0},
+    var quotes =[
+      {id: 1, Votes: 0},
+      {id: 2, Votes: 0},
     ];					
    
-    $scope.members = members;
+    $scope.quotes = quotes;
    
-    $scope.incrementUp = function(member: { Votes: number; }){
-      member.Votes++;
+    $scope.incrementUp = function(quote: { Votes: number; }){
+      quote.Votes++;
     }
-    $scope.incrementDown = function(member: { Votes: number; }){
-      member.Votes--;
+    $scope.incrementDown = function(quote: { Votes: number; }){
+      quote.Votes--;
     }
 }
 }

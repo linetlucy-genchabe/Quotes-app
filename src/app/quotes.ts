@@ -1,3 +1,4 @@
+
 export class Quotes {
     showDescription: boolean = false;
 
