@@ -49,7 +49,7 @@ export class QuotesComponent implements OnInit {
   voteQuote(quote:any,type:number){
     if(this['getQuotes']().indexOf(quote) >= 0){
         type === 0 ? this['getQuotes']()[this['getQuotes']().indexOf(quote)].upvotes++ : this['getQuotes']()[this['getQuotes']().indexOf(quote)].downvotes++;
-        this['rankQuotes'](); 
+        this.rankQuotes(); 
     }
 }
 
@@ -67,20 +67,6 @@ rankQuotes(): void{
       });
   }
 }
-  // function($scope: { quotes: { id: number; Votes: number; }[]; incrementUp: (quote: any) => void; incrementDown: (quote: any) => void; }){
- 
-  //   var quotes =[
-  //     {id: 1, Votes: 0},
-  //     {id: 2, Votes: 0},
-  //   ];					
-   
-  //   $scope.quotes = quotes;
-   
-  //   $scope.incrementUp = function(quote: { Votes: number; }){
-  //     quote.Votes++;
-  //   }
-  //   $scope.incrementDown = function(quote: { Votes: number; }){
-  //     quote.Votes--;
-  //   }
+  
 
 }

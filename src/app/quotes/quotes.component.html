@@ -8,10 +8,16 @@
     <hr>
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-4">
             <app-quote-form (addQuote)="addNewQuote($event)"> </app-quote-form>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-5">
             <h2 align="center">QUOTES</h2>
             <div *ngFor='let quote of quotes;let i = index' class="quotation">
                 <div>
@@ -20,19 +26,21 @@
                 </div>
 
                 <div *ngIf='quote.showDescription'>
-                    <span class="elapsed-duration">Published: {{quote.startDate|date}} ago.</span>
+                    <span class="elapsed-duration">Published: {{quote.startDate|date|uppercase}} ago.</span>
                     <app-quotes-detail [quote]='quote' (isComplete)='deleteQuote($event,i)'></app-quotes-detail>
                 </div>
-                <div>
-                    <p>
-                        <span class="submitted-by">{{quote.upvotes}} Upvotes</span>
-                        <span class="date-submitted">{{quote.downvotes}} Downvotes</span>
-                    </p>
-                </div>
+
 
                 <div class="quote-votes">
                     <button class="upvote btn btn-success btn-sm" (click)='voteQuote(quote,0)'>Upvote</button>
-                    <button class="downvote btn btn-secondary btn-sm" (click)='voteQuote(quote,1)'>Downvote</button>
+                    <button class="downvote btn btn-secondary btn-sm" (click)='voteQuote(quote,1)'> Downvote</button>
+
+                </div>
+                <div>
+                    <p>
+                        <span class="up">{{quote.upvotes}} Upvotes</span>
+                        <span class="down">{{quote.downvotes}} Downvotes</span>
+                    </p>
                 </div>
 
             </div>
