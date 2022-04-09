@@ -20,14 +20,20 @@
                 </div>
 
                 <div *ngIf='quote.showDescription'>
+                    <span class="elapsed-duration">Published: {{quote.startDate|date}} ago.</span>
                     <app-quotes-detail [quote]='quote' (isComplete)='deleteQuote($event,i)'></app-quotes-detail>
                 </div>
-                <button class="btn btn-primary btn-sm" ng-click="incrementUp(member)">
-                    <span class="glyphicon glyphicon-arrow-up"></span> Upvote</button> | <button class="btn btn-danger btn-sm" ng-click="incrementDown(member)"><span class="glyphicon glyphicon-arrow-down"></span> Downvote</button>
+
+
+                <div class="quote-votes">
+                    <button class="upvote btn btn-success btn-sm" (click)='voteQuote(quote,0)'>Upvote</button>
+                    <button class="downvote btn btn-secondary btn-sm" (click)='voteQuote(quote,1)'>Downvote</button>
+                </div>
+
             </div>
 
         </div>
 
     </div>
-    <!-- <p *ngIf='quotes.length > 5'>You have too many goals</p> -->
+
 </div>
