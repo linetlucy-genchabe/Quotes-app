@@ -23,7 +23,12 @@
                     <span class="elapsed-duration">Published: {{quote.startDate|date}} ago.</span>
                     <app-quotes-detail [quote]='quote' (isComplete)='deleteQuote($event,i)'></app-quotes-detail>
                 </div>
-
+                <div>
+                    <p>
+                        <span class="submitted-by">{{quote.upvotes}} Upvotes</span>
+                        <span class="date-submitted">{{quote.downvotes}} Downvotes</span>
+                    </p>
+                </div>
 
                 <div class="quote-votes">
                     <button class="upvote btn btn-success btn-sm" (click)='voteQuote(quote,0)'>Upvote</button>

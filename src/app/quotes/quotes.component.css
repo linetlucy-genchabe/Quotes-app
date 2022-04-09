@@ -17,13 +17,25 @@
 
 .quotation {
     border: 2px solid darkorchid;
-    height: 250px;
+    height: 260px;
     border-radius: 20px;
     box-shadow: 2px 2px 2px;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 * {
     color: white;
+}
+
+.submitted-by {
+    margin-left: 20px;
+}
+
+.date-submitted {
+    margin-left: 20px;
+}
+
+.quote-votes {
+    margin-top: -10px;
 }
