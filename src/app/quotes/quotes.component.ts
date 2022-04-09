@@ -8,16 +8,21 @@ import { Quotes } from '../quotes';
   styleUrls: ['./quotes.component.css']
 })
 export class QuotesComponent implements OnInit {
+  [x: string]: any;
   quotes: Quotes[] = [
-    new Quotes(1,"The two most powerful warriors are patience and time","AUTHOR: Leo Tolstoy",new Date(2021,3,14)),
-    new Quotes(2, 'Time is money', 'AUTHOR: Benjamin Franklin',new Date(2020,3,14)),
-    new Quotes(3,'Better three hours too soon than a minute too late','AUTHOR: William Shakespeare',new Date(2022,3,14)),
+    new Quotes(1,"The two most powerful warriors are patience and time","AUTHOR: Leo Tolstoy",new Date(2021,3,14),2,3),
+    new Quotes(2, 'Time is money', 'AUTHOR: Benjamin Franklin',new Date(2020,3,14),8,1,),
+    new Quotes(3,'Better three hours too soon than a minute too late','AUTHOR: William Shakespeare',new Date(2022,3,14),5,6),
    
     
   ];
+  quoteService: any;
 
   
   addNewQuote(quote:any){
+
+    quote.upvotes      = 0;
+    quote.downvotes    = 0;
     let quoteLength = this.quotes.length;
     quote.id = quoteLength+1;
     quote.startDate = new Date(quote.startDate)
@@ -39,20 +44,43 @@ export class QuotesComponent implements OnInit {
       }
     }
   }
-  function($scope: { quotes: { id: number; Votes: number; }[]; incrementUp: (quote: any) => void; incrementDown: (quote: any) => void; }){
+
  
-    var quotes =[
-      {id: 1, Votes: 0},
-      {id: 2, Votes: 0},
-    ];					
-   
-    $scope.quotes = quotes;
-   
-    $scope.incrementUp = function(quote: { Votes: number; }){
-      quote.Votes++;
-    }
-    $scope.incrementDown = function(quote: { Votes: number; }){
-      quote.Votes--;
+  voteQuote(quote:any,type:number){
+    if(this['getQuotes']().indexOf(quote) >= 0){
+        type === 0 ? this['getQuotes']()[this['getQuotes']().indexOf(quote)].upvotes++ : this['getQuotes']()[this['getQuotes']().indexOf(quote)].downvotes++;
+        this['rankQuotes'](); 
     }
 }
+
+rankQuotes(): void{
+  let upvoted: number   = Math.max.apply(Math,this['getQuotes']().map(function(chosen: { upvotes: any; }){return chosen.upvotes;}));
+  if( upvoted > 0){
+      let upvotedQuote: any = this['getQuotes']().find(function(selected: { upvotes: number; }){ return selected.upvotes == upvoted; });
+      let favIndex: number  = this['getQuotes']().indexOf(upvotedQuote);
+      this['getQuotes']().map((quote: { isFavorite: boolean; })=>{
+          if(favIndex === this['getQuotes']().indexOf(quote)){
+              this.quotes[favIndex].isFavorite = true;
+          }else{
+              quote.isFavorite = false;
+          }
+      });
+  }
+}
+  // function($scope: { quotes: { id: number; Votes: number; }[]; incrementUp: (quote: any) => void; incrementDown: (quote: any) => void; }){
+ 
+  //   var quotes =[
+  //     {id: 1, Votes: 0},
+  //     {id: 2, Votes: 0},
+  //   ];					
+   
+  //   $scope.quotes = quotes;
+   
+  //   $scope.incrementUp = function(quote: { Votes: number; }){
+  //     quote.Votes++;
+  //   }
+  //   $scope.incrementDown = function(quote: { Votes: number; }){
+  //     quote.Votes--;
+  //   }
+
 }
