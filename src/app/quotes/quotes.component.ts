@@ -16,7 +16,7 @@ export class QuotesComponent implements OnInit {
    
     
   ];
-  quoteService: any;
+  
 
   
   addNewQuote(quote:any){
@@ -45,26 +45,35 @@ export class QuotesComponent implements OnInit {
   }
 
  
+
   voteQuote(quote:any,type:number){
     if(this['getQuotes']().indexOf(quote) >= 0){
         type === 0 ? this['getQuotes']()[this['getQuotes']().indexOf(quote)].upvotes++ : this['getQuotes']()[this['getQuotes']().indexOf(quote)].downvotes++;
-        this.rankQuotes(); 
+        // this.rankQuotes(); 
     }
-}
-
-rankQuotes(): void{
-  let upvoted: number   = Math.max.apply(Math,this['getQuotes']().map(function(chosen: { upvotes: any; }){return chosen.upvotes;}));
-  if( upvoted > 0){
-      let upvotedQuote: any = this['getQuotes']().find(function(selected: { upvotes: number; }){ return selected.upvotes == upvoted; });
-      let favIndex: number  = this['getQuotes']().indexOf(upvotedQuote);
-      this['getQuotes']().map((quote: { isFavorite: boolean; })=>{
-          if(favIndex === this['getQuotes']().indexOf(quote)){
-              this.quotes[favIndex].isFavorite = true;
-          }else{
-              quote.isFavorite = false;
-          }
-      });
   }
+  upVoteValue: number = 0;
+  downVoteValue: number = 0;
+  upVote(quote:any,index: number){
+    this.upVoteValue++
+     
+  }
+  downVote(quote:any,index: number){
+    this.downVoteValue++
+
+// rankQuotes(): void{
+//   let upvoted: number   = Math.max.apply(Math,this['getQuotes']().map(function(chosen: { upvotes: any; }){return chosen.upvotes;}));
+//   if( upvoted > 0){
+//       let upvotedQuote: any = this['getQuotes']().find(function(selected: { upvotes: number; }){ return selected.upvotes == upvoted; });
+//       let favIndex: number  = this['getQuotes']().indexOf(upvotedQuote);
+//       this['getQuotes']().map((quote: { isFavorite: boolean; })=>{
+//           if(favIndex === this['getQuotes']().indexOf(quote)){
+//               this.quotes[favIndex].isFavorite = true;
+//           }else{
+//               quote.isFavorite = false;
+//           }
+//       });
+//   }
 }
   
 
