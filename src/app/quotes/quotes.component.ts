@@ -52,14 +52,16 @@ export class QuotesComponent implements OnInit {
         // this.rankQuotes(); 
     }
   }
-  upVoteValue: number = 0;
-  downVoteValue: number = 0;
-  upVote(quote:any,index: number){
-    this.upVoteValue++
+  upvotes: number = 0;
+  downvotes: number = 0;
+  upVote(index: number){
+    this.quotes[index].upvotes++
+     this.upvotes++
      
   }
-  downVote(quote:any,index: number){
-    this.downVoteValue++
+  downVote(index:any){
+    this.quotes[index].downvotes++
+     this.downvotes++
 
 // rankQuotes(): void{
 //   let upvoted: number   = Math.max.apply(Math,this['getQuotes']().map(function(chosen: { upvotes: any; }){return chosen.upvotes;}));

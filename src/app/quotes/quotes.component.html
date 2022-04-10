@@ -33,14 +33,14 @@
 
                 <div class="quote-votes">
 
-                    <button class="upvote btn btn-success btn-sm" (click)='upVote(quote,0)'>Upvote</button>
-                    <button class="downvote btn btn-secondary btn-sm" (click)='downVote(quote,0)' style="margin-left: 20px;"> Downvote</button>
+                    <button class="upvote btn btn-success btn-sm" (click)='upVote(i)'>Upvote</button>
+                    <button class="downvote btn btn-secondary btn-sm" (click)='downVote(i)' style="margin-left: 20px;"> Downvote</button>
 
                 </div>
                 <div>
                     <p>
-                        <span class="up">{{upVoteValue}} Upvotes</span>
-                        <span class="down">{{downVoteValue}} Downvotes</span>
+                        <span class="up">{{upvotes}} Upvotes</span>
+                        <span class="down">{{downvotes}} Downvotes</span>
                     </p>
                 </div>
 
