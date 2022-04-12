@@ -7,6 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 This application consists of  quotes where one can add or delete quotes as well as upvote and downvote quotes.
 ## UI
 <img src="/src/assets/ui.png">
+
 ## Setup/Installation Requirements
 * git clone https://github.com/linetlucy-genchabe/Quotes-app.git
 * Open the clone in a text editor and host it on your browser
