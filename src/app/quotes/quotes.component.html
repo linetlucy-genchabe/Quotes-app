@@ -36,16 +36,9 @@
 
                 <div class="quote-votes">
 
-                    <button class="upvote btn btn-success btn-sm" (click)='upVotes(i)'>Upvote</button>
-                    <button class="downvote btn btn-secondary btn-sm" (click)='downVotes(i)' style="margin-left: 20px;"> Downvote</button>
+                    <app-vote></app-vote>
+                </div>
 
-                </div>
-                <div>
-                    <p>
-                        <span class="up">{{upvotes}} Upvotes</span>
-                        <span class="down">{{downvotes}} Downvotes</span>
-                    </p>
-                </div>
 
             </div>
 
