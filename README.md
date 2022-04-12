@@ -1,26 +1,27 @@
 # QuotesApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.8.0.
 
-## Development server
+#### By **{Linetlucy Genchabe}**
+## Description
+This application consists of  quotes where one can add or delete quotes as well as upvote and downvote quotes.
+## Setup/Installation Requirements
+* git clone https://github.com/linetlucy-genchabe/Quotes-app.git
+* Open the clone in a text editor and host it on your browser
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Known Bugs
+There are no known bugs as of now.
+## Technologies Used
+* HTML- to build the structure of the page
+* CSS- to style the the pages
+* Javascript- to enable interractivity with the page.
+* Angular framework- to create the app
+* Bootstrap
+## Support and contact details
+Contact me via linetlucy21@gmail.com
+### License
+* MIT license
+Copyright (c) {2022} **{linetlucy's Quotes app}**
 
 ## Further help
 

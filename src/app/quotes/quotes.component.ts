@@ -16,12 +16,10 @@ export class QuotesComponent implements OnInit {
    
     
   ];
+  topVoted:any=this.quotes[1];
+  topVotes:number =0;
   
-
-  
-  addNewQuote(quote:any){
-
-    
+  addNewQuote(quote:any){ 
     let quoteLength = this.quotes.length;
     quote.id = quoteLength+1;
     quote.startDate = new Date(quote.startDate)
@@ -44,39 +42,34 @@ export class QuotesComponent implements OnInit {
     }
   }
 
- 
-
-  voteQuote(quote:any,type:number){
-    if(this['getQuotes']().indexOf(quote) >= 0){
-        type === 0 ? this['getQuotes']()[this['getQuotes']().indexOf(quote)].upvotes++ : this['getQuotes']()[this['getQuotes']().indexOf(quote)].downvotes++;
-        // this.rankQuotes(); 
+   
+  highestVoted(quotes: any) {
+    for (let i = 0; i < quotes.length; i++) {
+      if (quotes[i].upVotes > this.topVotes) {
+        this.topVotes = quotes[i].upVotes;
+        this.topVoted = quotes[i];
+      }
     }
+
+   
   }
+
+  
+
   upvotes: number = 0;
-  downvotes: number = 0;
-  upVote(index: number){
-    this.quotes[index].upvotes++
-     this.upvotes++
+   downvotes: number = 0;
+  upVotes(index: number){
+     this.quotes[index].upvotes++;
+    
+       this.upvotes++
      
   }
-  downVote(index:any){
-    this.quotes[index].downvotes++
-     this.downvotes++
+   downVotes(index:any){
+     this.quotes[index].downvotes++
+      this.downvotes++
 
-// rankQuotes(): void{
-//   let upvoted: number   = Math.max.apply(Math,this['getQuotes']().map(function(chosen: { upvotes: any; }){return chosen.upvotes;}));
-//   if( upvoted > 0){
-//       let upvotedQuote: any = this['getQuotes']().find(function(selected: { upvotes: number; }){ return selected.upvotes == upvoted; });
-//       let favIndex: number  = this['getQuotes']().indexOf(upvotedQuote);
-//       this['getQuotes']().map((quote: { isFavorite: boolean; })=>{
-//           if(favIndex === this['getQuotes']().indexOf(quote)){
-//               this.quotes[favIndex].isFavorite = true;
-//           }else{
-//               quote.isFavorite = false;
-//           }
-//       });
-//   }
-}
+
+ }
   
 
 }

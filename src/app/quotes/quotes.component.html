@@ -20,7 +20,10 @@
         <div class="col-md-5">
             <h2 align="center">QUOTES</h2>
             <div *ngFor='let quote of quotes;let i = index' class="quotation">
+                <!-- *ngIf=" quote.upvotes === topVotes && quote.upvotes !== 0; then top; else normal "
+                 -->
                 <div>
+
                     <h6 id={{i}} appStrikethrough>{{quote.name}} </h6>
                     <button (click)='toggleDetails(i)' class="btn btn-primary">Details</button>
                 </div>
@@ -33,8 +36,8 @@
 
                 <div class="quote-votes">
 
-                    <button class="upvote btn btn-success btn-sm" (click)='upVote(i)'>Upvote</button>
-                    <button class="downvote btn btn-secondary btn-sm" (click)='downVote(i)' style="margin-left: 20px;"> Downvote</button>
+                    <button class="upvote btn btn-success btn-sm" (click)='upVotes(i)'>Upvote</button>
+                    <button class="downvote btn btn-secondary btn-sm" (click)='downVotes(i)' style="margin-left: 20px;"> Downvote</button>
 
                 </div>
                 <div>
